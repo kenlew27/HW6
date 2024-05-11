@@ -125,4 +125,14 @@ def dict_filter(function,dict):
 	return soldict
 
 
+def is_empty(self):
+    return (self.key is None and self.value is None and self.children is None)
 
+def treemap(function,tree):
+    if tree.is_empty():
+        return 0
+    else:
+        for t in self.children:
+            t.key= function(t.key,t.val)[0]
+            t.val= function(t.key,t.val)[1]
+        return 0
