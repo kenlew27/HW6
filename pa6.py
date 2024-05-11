@@ -167,7 +167,47 @@ class DTree:
 		return len(entries)
 
 	def find_outcome(self,tuple):
-		return tuple
+		var1,var2,var3 = tuple
+		valtocompare=0
+		if self.variable == 0:
+			valtocompare = var1
+		if self.variable == 1:
+			valtocompare = var2
+		if self.variable == 2:
+			valtocompare = var3
+		#print(valtocompare)
+		#print(self.threshold)
+		#$print(self.lessequal.lessequal.lessequal)
+		if valtocompare <= self.threshold and self.lessequal.lessequal.lessequal==None:
+			#print("proc")
+			return self.lessequal.lessequal.outcome
+		elif valtocompare > self.threshold and self.lessequal.lessequal.lessequal==None:
+			#print("proc")
+			return self.greater.outcome
+		else:	
+				val = self.applyselfequal()
+				if val.variable == 0:
+					valtocompare = var1
+				if val.variable == 1:
+					valtocompare = var2
+				if val.variable == 2:
+					valtocompare = var3
+				if valtocompare <= val.threshold and val.lessequal.variable==None:
+					return val.lessequal.outcome
+				elif valtocompare > val.threshold and val.lessequal.variable==None:
+					return val.greater.outcome
+				while val!=None:
+					val = val.applyselfequal()
+					if val.variable == 0:
+						valtocompare = var1
+					if val.variable == 1:
+						valtocompare = var2
+					if val.variable == 2:
+						valtocompare = var3
+					if valtocompare <= val.threshold and val.lessequal.variable==None:
+						return val.lessequal.outcome
+					elif valtocompare > val.threshold and val.lessequal.variable==None:
+						return val.greater.outcome
 
 
 		
@@ -179,5 +219,5 @@ class DTree:
 
 
 #test = DTree(0, 66, DTree(2, 10, DTree(None, None, None, None, "walk"), DTree(None, None, None, None, "stay home"), None), DTree(None, None, None, None, "stay home"),        None)
-#print(test.tuple_atleast())
+#print(test.find_outcome( (64,0,11) ))
 
