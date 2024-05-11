@@ -134,3 +134,46 @@ def treemap(function,tree):
         treemap(function,st)
 
 
+class DTree:
+	def __init__(self, variable, threshold, lessequal, greater,outcome):
+		self.variable = variable
+		self.threshold = threshold
+		self.lessequal = lessequal
+		self.greater = greater
+		self.outcome = outcome
+
+		#print(self.variable)
+		#print(self.threshold)
+		#print(self.lessequal)
+		#print(self.greater)
+		#print(self.outcome)
+		if (self.variable and self.threshold and self.lessequal and self.greater and self.outcome) != None:
+			if not ((self.variable and self.threshold and self.lessequal and self.greater) != None          or         self.outcome != None):
+				raise ValueError
+
+	def applyselfequal(val):
+		return val.lessequal
+
+	def tuple_atleast(self):
+		entries=[]
+		entries.append(self.variable)
+
+		if self.applyselfequal() != None:
+			val = self.applyselfequal()
+			if val.variable not in entries:
+				entries.append(val.variable)
+			while val!=None:
+				val = val.applyselfequal()
+		return len(entries)+1
+
+		
+	
+
+	
+
+
+
+
+#test = DTree(0, 66, DTree(2, 10, DTree(None, None, None, None, "walk"), DTree(None, None, None, None, "stay home"), None), DTree(None, None, None, None, "stay home"),        None)
+#print(test.tuple_atleast())
+
