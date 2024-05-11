@@ -164,7 +164,7 @@ class DTree:
 				entries.append(val.variable)
 			while val!=None:
 				val = val.applyselfequal()
-		return len(entries)+1
+		return len(entries)
 
 		
 	
