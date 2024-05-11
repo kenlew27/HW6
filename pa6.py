@@ -20,6 +20,7 @@ def make_change(total):
 	count10=howmanytimes(10,total)
 	count5=howmanytimes(5,total)
 	count1=howmanytimes(1,total)
+	tempsolution=[]
 	newtotal = total
 
 	if count1>=1:
@@ -54,29 +55,66 @@ def make_change(total):
 					for val5 in list5:
 						for val1 in list1:
 							if addup([val1[0],val5[1],val10[2],val25[3],val100[4]],total):
-								solution.append([val1[0],val5[1],val10[2],val25[3],val100[4]])
+								tempsolution=[]
+								for i in range(val1[0]):
+									tempsolution.append(1)
+								for i in range(val5[1]):
+									tempsolution.append(5)
+								for i in range(val10[2]):
+									tempsolution.append(10)
+								for i in range(val25[3]):
+									tempsolution.append(25)
+								for i in range(val100[4]):
+									tempsolution.append(100)
+								solution.append(tempsolution)
 	elif count25>=1:
 		for val25 in list25:
 			for val10 in list10:
 				for val5 in list5:
 					for val1 in list1:
 						if addup([val1[0],val5[1],val10[2],val25[3],0],total):
-							solution.append([val1[0],val5[1],val10[2],val25[3],0])
+							tempsolution=[]
+							for i in range(val1[0]):
+								tempsolution.append(1)
+							for i in range(val5[1]):
+								tempsolution.append(5)
+							for i in range(val10[2]):
+								tempsolution.append(10)
+							for i in range(val25[3]):
+								tempsolution.append(25)
+							solution.append(tempsolution)
+
 	elif count10>=1:
 		for val10 in list10:
 			for val5 in list5:
 				for val1 in list1:
 					if addup([val1[0],val5[1],val10[2],0,0],total):
-						solution.append([val1[0],val5[1],val10[2],0,0])
+						tempsolution=[]
+						for i in range(val1[0]):
+							tempsolution.append(1)
+						for i in range(val5[1]):
+							tempsolution.append(5)
+						for i in range(val10[2]):
+							tempsolution.append(10)
+						solution.append(tempsolution)
+
 	elif count5>=1:
 		for val5 in list5:
 			for val1 in list1:
 				if addup([val1[0],val5[1],0,0,0],total):
-					solution.append([val1[0],val5[1],0,0,0])
+					tempsolution=[]
+					for i in range(val1[0]):
+						tempsolution.append(1)
+					for i in range(val5[1]):
+						tempsolution.append(5)
+					solution.append(tempsolution)
 	else:
-		solution.append([total,0,0,0,0])
+		for i in range(val1[0]):
+			tempsolution.append(1)
+		solution.append(tempsolution)
 
 	return solution
+
 
 
 
