@@ -139,5 +139,5 @@ def treemap(function,t):
     t.key=function(t.key,t.value)[0]
     t.value=function(t.key,t.value)[1]
     for st in t.children:
-        traverse(st)
+        treemap(st)
 
