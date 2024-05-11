@@ -166,6 +166,10 @@ class DTree:
 				val = val.applyselfequal()
 		return len(entries)
 
+	def find_outcome(self,tuple):
+		return tuple
+
+
 		
 	
 
