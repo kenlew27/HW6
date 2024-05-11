@@ -127,17 +127,10 @@ def dict_filter(function,dict):
 
 
 
+def treemap(function,tree):
+    tree.key=function(tree.key,tree.value)[0]
+    tree.value=function(tree.key,tree.value)[1]
+    for st in tree.children:
+        treemap(function,st)
 
-
-
-
-
-
-def treemap(function,t):
-    print(t.key)
-    print(t.value)
-    t.key=function(t.key,t.value)[0]
-    t.value=function(t.key,t.value)[1]
-    for st in t.children:
-        treemap(st)
 
