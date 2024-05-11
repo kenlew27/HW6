@@ -115,6 +115,14 @@ def make_change(total):
 
 	return solution
 
+def dict_filter(function,dict):
+	soldict={}
+	for val in dict.keys():
+		key = val
+		kval = dict[key]
+		if function(key,kval):
+			soldict[key] = kval
+	return soldict
 
 
 
